@@ -1,5 +1,6 @@
 from flask import Flask
 
+from .blueprints import restapi
 from .extensions import cors
 
 
@@ -13,6 +14,7 @@ def create_app_minimal():
 def create_app():
     app = create_app_minimal()
 
+    restapi.init_app(app)
     cors.init_app(app)
 
     return app
