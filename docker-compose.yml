@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: gunicorn -b 0.0.0.0 -w 2 --access-logfile - "backend.wsgi:app"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/:/backend/
+    ports:
+      - 8000:8000
+
+  database:
+    image: mongo:4.4.2
+    env_file: .env
+    volumes:
+      - ./mongo_volume:/data/todos
+    ports:
+      - "27017-27019:27017-27019"
+
+volumes:
+  mongo_volume:

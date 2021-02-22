@@ -16,7 +16,6 @@ Flask-Cors = "^3.0.10"
 Flask-JWT = "^0.3.2"
 gunicorn = "^20.0.4"
 python-dotenv = "^0.15.0"
-dotenv-python = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
