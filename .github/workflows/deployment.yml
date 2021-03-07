@@ -3,7 +3,7 @@ name: Continuous Deployment
 on:
   pull_request:
     branches:
-      - develop
+      - master
 
 jobs:
   backend:
