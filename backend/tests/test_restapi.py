@@ -3,14 +3,11 @@ from json import loads
 from random import randint
 from datetime import datetime
 
-from dotenv import load_dotenv
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 from backend.services.database import DatabaseWrapper
 
-
-# load_dotenv()
 
 collection = MongoClient(getenv('MONGO_URI'))['higgs']['igorm']
 

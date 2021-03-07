@@ -3,11 +3,8 @@ from json import JSONEncoder
 from bson import ObjectId
 from typing import Dict, Any, List
 
-from dotenv import load_dotenv
 from pymongo import MongoClient
 
-
-load_dotenv()
 
 class JSONEncoderDocument(JSONEncoder):
     def default(self, o):
