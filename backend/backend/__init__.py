@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 from .blueprints import restapi, health
 from .extensions import cors
@@ -13,6 +13,13 @@ def create_app_minimal():
 
 def create_app():
     app = create_app_minimal()
+
+    @app.route("/")
+    def main():
+        return jsonify({
+            "health": "/health",
+            "docs": "..."
+        })
 
     # Blueprints
     restapi.init_app(app)

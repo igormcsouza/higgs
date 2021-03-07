@@ -1,0 +1,21 @@
+name: Continuous Deployment
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  backend:
+    runs-on: Ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.8.9
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "higgs-bknd"
+          heroku_email: "igormcsouza@gmail.com"
+          usedocker: true
+          appdir: "backend"
+        env:
+          HD_MONGO_URI: ${{ secrets.MONGO_URI }}
