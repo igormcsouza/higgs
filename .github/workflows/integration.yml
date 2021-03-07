@@ -1,0 +1,17 @@
+name: Continuous Integration
+
+on: [pull_request]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Prepare environment
+        run: echo "MONGO_URI=mongodb://root:secret@database:27017/" > backend/.env
+      - name: Build Backend Images
+        run: docker-compose build backend
+      - name: Run Backend and Database Containers
+        run: docker-compose up -d backend database
+      - name: Run Test Backend Pipeline
+        run: docker-compose exec -T backend poetry run test
