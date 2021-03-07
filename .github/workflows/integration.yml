@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Prepare environment
-        run: echo "MONGO_URI=mongodb://root:secret@database:27017/" > backend/.env
+        run: echo "MONGO_URI=${{MONGO_URI}}" > backend/.env
       - name: Build Backend Images
         run: docker-compose build backend
       - name: Run Backend and Database Containers
