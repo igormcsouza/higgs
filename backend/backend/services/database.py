@@ -22,7 +22,7 @@ class DatabaseWrapper:
     def __init__(self, collection: str):
         try:
             self.collection = MongoClient(
-                getenv('MONGO_URI'))['todos'][collection]
+                getenv('MONGO_URI'))['higgs'][collection]
         except Exception as e:
             print('There is an erro connecting to the database', e)
 

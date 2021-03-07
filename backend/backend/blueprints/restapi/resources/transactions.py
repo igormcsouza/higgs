@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 from backend.services.database import DatabaseWrapper
 
 
-db = DatabaseWrapper('main')
+db = DatabaseWrapper('igorm')
 
 class TransactionsResource(Resource):
 
